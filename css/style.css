@@ -1,0 +1,113 @@
+.box {
+  position: relative;
+}
+.banner {
+  min-height: 700px;
+  background-image: url(../images/bg.png);
+  background-size: cover;
+  width: 100%;
+  position: relative;
+}
+.banner > .container {
+  position: relative;
+  z-index: 2;
+}
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgb(0, 0, 0, 0.75);
+  z-index: 1;
+}
+h2 {
+  font-size: 60px;
+}
+.row {
+  width: 100%;
+}
+.cadastro-lead {
+  padding: 40px 0;
+}
+.cadastro-lead input[type="text"] {
+  width: 75%;
+  height: 40px;
+  padding-left: 10px;
+  margin-right: 10px;
+  margin-top: 5px;
+  font-size: 16px;
+}
+.cadastro-lead input[type="submit"] {
+  height: 40px;
+  color: white;
+}
+.depoimentos {
+  background-color: #f2f2f2;
+  padding: 30px 0;
+}
+.depoimentos p {
+  color: #4b4b4b;
+}
+.titulo,
+.equipe,
+.equipe-container {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.equipe-single {
+  width: 100%;
+  margin-bottom: 10px;
+  padding: 20px 10px;
+  border: 1px solid white;
+  -webkit-box-shadow: 3px 3px 5px -1px rgba(0, 0, 0, 0.44);
+  box-shadow: 3px 3px 5px -1px rgba(0, 0, 0, 0.44);
+}
+.user-picture {
+  width: 100%;
+  padding-top: 100%;
+  background-color: #ccc;
+  border-radius: 50%;
+  border: 1px solid #0d6efd;
+  position: relative;
+  left: 50%;
+  transform: translate(-50%, 0);
+}
+.user-picture-child {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #ccc;
+  border-radius: 50%;
+}
+.row {
+  margin: 0;
+}
+.final-site {
+  padding: 30px 0;
+}
+#mensagem {
+  resize: none;
+}
+.final-site h3 {
+  margin: 10px 0;
+}
+.final {
+  margin-bottom: 10px;
+}
+.conclusao p {
+  margin: 0;
+  padding: 0;
+}
+.conclusao{
+  padding: 8px 0;
+}
+@media screen and (max-width: 767px) {
+  .user-picture {
+    width: 35%;
+    padding-top: 35%;
+  }
+}
