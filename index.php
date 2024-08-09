@@ -1,3 +1,9 @@
+<?php 
+    $pdo=new PDO('mysql:host=localhost;dbname=bootstrap_projeto','root','');
+    $sobre = $pdo->prepare("SELECT * FROM  `tb_sobre`");
+    $sobre->execute();
+    $sobre = $sobre->fetch()['sobre'];
+?>
 <!doctype html>
 <html lang="pt-br">
 
@@ -88,45 +94,9 @@
             <h2 class="fs-3 titulo text-center ">Conheça a tecnologia</h2>
             <div class="container ">
                 <div class="row cont text-center">
-                    <div class="col-md-4">
-                        <img src="images/trofeu.png" alt="">
-                        <h4>Diferencial #1</h4>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer lacinia auctor nibh et
-                            bibendum. Maecenas cursus maximus turpis. Vestibulum et maximus turpis. Maecenas aliquam
-                            elit in ante hendrerit pretium. Cras et libero a est volutpat eleifend id et ipsum.
-                            Maecenas
-                            velit velit, tempor a ex a, vulputate feugiat velit. Vestibulum nisl purus, sodales non
-                            imperdiet vel, pretium eget justo. Maecenas aliquet mollis mauris, eget porta lacus
-                            eleifend
-                            ac. Curabitur nec tincidunt mauris.</p>
-                    </div>
-                    <div class="col-md-4">
-                        <img src="images/star.png" alt="">
-                        <h4>Diferencial #2</h4>
-                        <p>Phasellus vel pellentesque neque. Praesent suscipit placerat iaculis. Fusce quis augue
-                            justo.
-                            Nam blandit mauris quis ipsum sodales lacinia. Ut at nisl non lectus interdum laoreet eu
-                            eu
-                            risus. Integer egestas nibh vel fringilla porta. Curabitur vitae pharetra quam. Praesent
-                            lobortis diam nec purus viverra vestibulum. Ut ullamcorper dolor at sapien tincidunt, in
-                            porttitor sem iaculis. Praesent et efficitur metus. Nulla id justo at turpis suscipit
-                            interdum a et lacus</p>
-                    </div>
-                    <div class="col-md-4">
-                        <img src="images/popular.png" alt="">
-                        <h4>Diferencial #3</h4>
-                        <p>Nam sem lorem, ultrices eget sodales ac, tempor a tortor. Class aptent taciti sociosqu ad
-                            litora torquent per conubia nostra, per inceptos himenaeos. Aenean quis lacinia lorem.
-                            Integer in nunc vel est pretium ultrices. Sed lacinia, nisi sed rhoncus ornare, lorem
-                            sem
-                            pellentesque elit, quis tincidunt quam turpis eu elit. Suspendisse et orci euismod,
-                            egestas
-                            tellus sed, elementum est. Mauris ultricies lobortis aliquam. Aliquam sed dui quam.
-                            Aenean
-                            id fermentum metus, sit amet aliquet urna. Phasellus quis neque ultricies, tempus arcu
-                            vel,
-                            sodales neque. Nulla libero nisi, gravida in tellus sed, mollis ullamcorper eros.</p>
-                    </div>
+                    <?php 
+                        echo $sobre;
+                    ?>
                 </div>
             </div>
         </div>
@@ -134,6 +104,12 @@
             <h2 class="fs-3 text-center">Equipe</h2>
             <div class="container equipe-container">
                 <div class="row">
+                    <?php 
+                    $selectMembros = $pdo->prepare("SELECT * FROM `tb_equipe`");
+                    $selectMembros->execute();
+                    $membros = $selectMembros->fetchAll();
+                    for($i=0; $i < count($membros); $i++){         
+                    ?>
                     <div class="col-md-6">
                         <div
                             class="equipe-single bg-white text-black rounded border border-success p-2 border-opacity-100">
@@ -144,78 +120,15 @@
                                     </div>
                                 </div>
                                 <div class="col-md-10">
-                                    <h3>Vinicius</h3>
-                                    <p>Phasellus vel pellentesque neque. Praesent suscipit placerat
-                                        iaculis. Fusce quis
-                                        augue justo. Nam blandit mauris quis ipsum sodales lacinia. Ut at nisl non
-                                        lectus interdum laoreet eu eu risus. Integer egestas nibh vel fringilla porta.
-                                        Curabitur vitae pharetra quam. Praesent lobortis diam nec purus viverra
-                                        vestibulum. </p>
+                                    <h3><?=$membros[$i]['nome']?></h3>
+                                    <p><?=$membros[$i]['descricao']?></p>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-6">
-                        <div
-                            class="equipe-single bg-white text-black rounded border border-success p-2 border-opacity-100">
-                            <div class="row">
-                                <div class="col-md-2">
-                                    <div class="user-picture">
-                                        <div class="user-picture-child"></div>
-                                    </div>
-                                </div>
-                                <div class="col-md-10">
-                                    <h3>Vinicius</h3>
-                                    <p>Phasellus vel pellentesque neque. Praesent suscipit placerat iaculis. Fusce quis
-                                        augue justo. Nam blandit mauris quis ipsum sodales lacinia. Ut at nisl non
-                                        lectus interdum laoreet eu eu risus. Integer egestas nibh vel fringilla porta.
-                                        Curabitur vitae pharetra quam. Praesent lobortis diam nec purus viverra
-                                        vestibulum. </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div
-                            class="equipe-single bg-white text-black rounded border border-success p-2 border-opacity-100">
-                            <div class="row text-left">
-                                <div class="col-md-2">
-                                    <div class="user-picture">
-                                        <div class="user-picture-child"></div>
-                                    </div>
-                                </div>
-                                <div class="col-md-10">
-                                    <h3>Vinicius</h3>
-                                    <p>Phasellus vel pellentesque neque. Praesent suscipit placerat
-                                        iaculis. Fusce quis
-                                        augue justo. Nam blandit mauris quis ipsum sodales lacinia. Ut at nisl non
-                                        lectus interdum laoreet eu eu risus. Integer egestas nibh vel fringilla porta.
-                                        Curabitur vitae pharetra quam. Praesent lobortis diam nec purus viverra
-                                        vestibulum. </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div
-                            class="equipe-single bg-white text-black rounded border border-success p-2 border-opacity-100">
-                            <div class="row">
-                                <div class="col-md-2">
-                                    <div class="user-picture">
-                                        <div class="user-picture-child"></div>
-                                    </div>
-                                </div>
-                                <div class="col-md-10">
-                                    <h3>Vinicius</h3>
-                                    <p>Phasellus vel pellentesque neque. Praesent suscipit placerat iaculis. Fusce quis
-                                        augue justo. Nam blandit mauris quis ipsum sodales lacinia. Ut at nisl non
-                                        lectus interdum laoreet eu eu risus. Integer egestas nibh vel fringilla porta.
-                                        Curabitur vitae pharetra quam. Praesent lobortis diam nec purus viverra
-                                        vestibulum. </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    <?php 
+                        }
+                    ?>
                 </div>
             </div>
         </div>
